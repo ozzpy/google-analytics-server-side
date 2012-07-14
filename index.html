@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Google Analytics Server Side by chappy84</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/chappy84/google-analytics-server-side">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/chappy84/google-analytics-server-side/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/chappy84/google-analytics-server-side/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Google Analytics Server Side</h1>
+          <p>Google Analytics Server Side Tracking (PHP)</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/chappy84">chappy84</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Google Analytics Server Side</h1>
+
+<p>Google Analytics Server Side is an implementation of the 
+<a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics Web Tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
+It implements parts of the interface that would be available without ECMAScript in a 
+Browser.</p>
+
+<p>CODE: <code>git clone git://github.com/chappy84/google-analytics-server-side.git</code><br>
+HOME: <a href="http://github.com/chappy84/google-analytics-server-side">http://github.com/chappy84/google-analytics-server-side</a><br>
+BUGS: <a href="http://github.com/chappy84/google-analytics-server-side/issues">http://github.com/chappy84/google-analytics-server-side/issues</a>  </p>
+
+<p>Google Analytics was developed by <a href="http://www.google.com/analytics">Google</a>.<br>
+This PHP adaptation is maintained by <a href="http://tom-chapman.co.uk/">Tom Chapman</a>.  </p>
+
+<h2>Build Status</h2>
+
+<p>Master: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Build Status"></a><br>
+Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=development" alt="Build Status"></a></p>
+
+<h2>Usage</h2>
+
+<p>Google Analytics Server Side can be used simply in the following manner:</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide();</span>
+<span class="x">$gass-&gt;setAccount('UA-XXXXXXX-X')</span>
+<span class="x">    -&gt;trackPageView();</span>
+</pre>
+</div>
+
+
+<p>The class constructor accepts an optional associative array parameter of available
+configuration options. Basically if there's a public method to set the variable
+then it can be passed as part of the array to the class.</p>
+
+<p>e.g.</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide();</span>
+<span class="x">$gass-&gt;setAccount('UA-XXXXXXX-X')</span>
+<span class="x">    -&gt;setBotInfo(true);</span>
+</pre>
+</div>
+
+
+<p>could also be done like this:</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide(array('account'   =&gt; 'UA-XXXXXXX-X'</span>
+<span class="x">                                        ,   'botInfo'   =&gt; true));</span>
+</pre>
+</div>
+
+
+<p>These options can also be set individually by the method setOption,
+or in one go with the method setOptions</p>
+
+<p>Most of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration">current basic methods</a> available in ga.js tracking code have been 
+implemented.<br>
+The methods implemented are:</p>
+
+<ul>
+<li>deleteCustomVar</li>
+<li>getAccount</li>
+<li>getVersion</li>
+<li>getVisitorCustomVar</li>
+<li>setAccount</li>
+<li>setCustomVar</li>
+<li>setSessionCookieTimeout</li>
+<li>setVisitorCookieTimeout</li>
+<li>trackPageview</li>
+</ul><p>The methods not implemented yet are:</p>
+
+<ul>
+<li>getName</li>
+<li>setSampleRate</li>
+<li>setSiteSpeedSampleRate</li>
+</ul><p>Extra methods are also available for the information which would normally be 
+pre-determined in the javascript or http request object from the browser. The User Agent, 
+Server Name, Remote Address, Document Path, Document Referer, Google Analytics Version, 
+Accepted Language, Cookies and Search Engines are all set automatically without any method 
+calls being required by the developer. However, the following methods are available to set 
+these variables and should be called before the trackPageView / trackEvent method to save 
+the tracking information:</p>
+
+<ul>
+<li>setVersion</li>
+<li>setAcceptLanguage</li>
+<li>setUserAgent</li>
+<li>setServerName</li>
+<li>setRemoteAddress</li>
+<li>setDocumentPath</li>
+<li>setDocumentReferer</li>
+<li>setCookies</li>
+</ul><p>On top of this there are also set methods to alter the default values for the the page 
+title and document character set.<br>
+These are available via the following methods:</p>
+
+<ul>
+<li>setPageTitle</li>
+<li>setCharset</li>
+</ul><p>Get methods are also provided for all of the above.<br>
+All methods but get methods allow chaining for ease of use.</p>
+
+<h3>Event Tracking</h3>
+
+<p>Event tracking is implemented using the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEventTracking">same functionality as in the ga.js tracking code</a></p>
+
+<div class="highlight">
+<pre><span class="x">$gass-&gt;trackEvent('Category', 'Action', 'Label [optional]', Value [optional - integer], nonInteraction [optional - boolean]);</span>
+</pre>
+</div>
+
+
+<p>N.B. trackEvent() does not require trackPageView() to be called first.<br>
+However if you do not call trackPageView first or set nonInteraction to true then your 
+pages/visit metric may become less than 1.</p>
+
+<h2>BotInfo</h2>
+
+<p>You must enable botInfo for it to ignore any search/trawler bots.<br>
+To do this you need to pass one of true, and associative array or an instance of the 
+adapter you want to use into the class.  The code will default to the BrowsCap adapter. 
+Setting this to true will use the default. If you pass an associative array, this will be 
+passed to BotInfo and through to the Adapter. When providing an associative array you can 
+also pass the element 'adapter' which will tell BotInfo which class to use as the Adapter. 
+You can also pass an instance of a GASS\BotInfo Adapter which will be used by the 
+GASS\BotInfo Class.</p>
+
+<h3>Adapters</h3>
+
+<p>There are two adapters available in the GASS framework</p>
+
+<h4>BrowsCap</h4>
+
+<p>There is one optional option as part of the array configuration parameter. </p>
+
+<ul>
+<li>browscap: This is the same as the php ini setting <a href="http://www.php.net/manual/en/misc.configuration.php#ini.browscap">browscap</a>, a file-system location 
+where the <a href="http://browsers.garykeith.com/downloads.asp">php_browscap.ini file</a> is located / can be downloaded to.</li>
+</ul><p>e.g.</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide(array('botInfo'   =&gt; true</span>
+<span class="x">                                        ,   'account'   =&gt; 'UA-XXXXXXX-X'));</span>
+</pre>
+</div>
+
+
+<p>or</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide(array('botInfo'   =&gt; array(   'adapter' =&gt; 'BrowsCap'</span>
+<span class="x">                                                                ,   'browscap'=&gt; '/tmp/php_browscap.ini')</span>
+<span class="x">                                        ,   'account'   =&gt; 'UA-XXXXXXX-X'));</span>
+</pre>
+</div>
+
+
+<p>or</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide(array('account'   =&gt; 'UA-XXXXXXX-X'))</span>
+<span class="x">$browsCapAdapter = new \GASS\BotInfo\BrowsCap;</span>
+<span class="x">$gass-&gt;setBotInfo($browsCapAdapter);</span>
+</pre>
+</div>
+
+
+<p>When an update for the browscap ini file is available <a href="http://browsers.garykeith.com/downloads.asp">on the server</a> the code will 
+automatically download the file into the location provided.</p>
+
+<p>N/B: You MUST either provide the browscap setting or have it set in php.ini, otherwise 
+this adapter will not work.</p>
+
+<p>N/B2: Due to an issue with the browscap ini file only being loaded when PHP starts up 
+(which is with the web-server apache, PHP-FPM etc.) the code deals with the ini file 
+itself, rather than using the built in get_browser function. This ensures the auto-update 
+functionality will work without the need to restart the web-server.</p>
+
+<h4>UserAgentStringInfo</h4>
+
+<p>This was the previous default for Google Analytics Server Side which downloads a csv list 
+of search engine crawlers from <a href="http://user-agent-string.info/download">user-agent-string.info</a>.<br>
+There are three options as part of the array configuration parameter:</p>
+
+<ul>
+<li>cachePath: where to save the list of bots downloaded from user-agent-string.info (required)</li>
+<li>cacheFilename: the filename to save the list of bots to (optional, defaults to bots.csv)</li>
+<li>cacheLifetime: number of secods before the cache expires (optional, defaults to 2592000 (30 days))</li>
+</ul><p>This can be implemented in the same way as the BrowsCap adapter.</p>
+
+<h2>Http</h2>
+
+<p>This is a singleton class which provides http functionality across all sections of the 
+GASS framework.<br>
+This will default to using the Curl adapter if it's available otherwise it'll fall back 
+to the Stream adapter. It requires no options. All options should be passed as a 
+configuration option to GoogleAnalyticsServerSide either via the configuration parameter 
+in the 'http' element or via the setHttp parameter. This can either be an associative 
+array or an instance of the required adapter.</p>
+
+<p>e.g.</p>
+
+<div class="highlight">
+<pre><span class="x">$gass = new GoogleAnalyticsServerSide(array('account'   =&gt; 'UA-XXXXXXX-X'</span>
+<span class="x">                                        ,   'http'      =&gt; array(   'adapter'       =&gt; 'Curl'</span>
+<span class="x">                                                                ,   CURLOPT_PROXY   =&gt; 'http://exampleproxy.local:8080'));</span>
+</pre>
+</div>
+
+
+<p>or</p>
+
+<div class="highlight">
+<pre><span class="x">$httpAdapter = new \GASS\Http\Stream();</span>
+<span class="x">$gass = new GoogleAnalyticsServerSide(array('account'   =&gt; 'UA-XXXXXXX-X'));</span>
+<span class="x">$gass-&gt;setHttp($httpAdapter);</span>
+</pre>
+</div>
+
+
+<h3>Adapters</h3>
+
+<p>There are two Adapters available to GASS\Http, these are:</p>
+
+<h4>Stream</h4>
+
+<p>Stream creates a stream context and utilises this stream with file_get_contents. See 
+<a href="http://www.php.net/file_get_contents#example-2118">php's example</a>. Any options provided to this class will go into the 'http' array for 
+the stream context, thus you may pass any headers or proxy information etc. into this to 
+use in the connection when made.</p>
+
+<h4>Curl</h4>
+
+<p>This utilises the php extension cURL. cURL is recommended, however as it's not always 
+available the code defaults to stream to allow all servers make http requests in the 
+correct way.<br>
+Any options provided to this class must be passed using the <a href="http://www.php.net/manual/en/function.curl-setopt.php#refsect1-function.curl-setopt-parameters">curl constants</a> as 
+identifiers (associative array keys or option names).</p>
+
+<h2>Location</h2>
+
+<p>The Location will be reported as the location of the server if you use the GA Account 
+number in the format UA-XXXXXXX-X as provided by Google. If you alter this to the format 
+MO-XXXXXXX-X then the location will be tracked correctly and appear on the location map as 
+it does with the normal ECMAScript tracking.</p>
+
+<h2>Cookies</h2>
+
+<p>Cookies are automatically set when either trackPageView or trackEvent are called.<br>
+They are however only sent as headers to the browser once, thus if you call either 
+function more than once, or call both functions, then they will only be included in the 
+headers when the first call is made.</p>
+
+<p>You do have the option to turn off the sending of the cookie headers to the browser which 
+can be done by calling disableCookieHeaders before calling trackPageView / trackEvent for 
+the first time.</p>
+
+<h2>PHP Version</h2>
+
+<p>The Bad News: This project is now a PHP 5.3+ project. PHP themselves no longer support 
+PHP 5.2 as of August 2011 and with PHP 5.4 now available it's time we left 5.2 behind 
+(sorry to all those on shared hosting stuck with it).  </p>
+
+<p>The Good News: I have however left a <a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> which you can feel free to use, 
+fork etc.. I will try to fix any issues which arise in this branch. Please notify me of 
+any issues via the bugs link at the top of this readme, or via a pull request from your 
+fork if you've attempted a fix yourself.</p>
+
+<h2>Quick Note on External Frameworks</h2>
+
+<p>You may be wondering why this framework doesn't use an external framework (such as Zend 
+Framework, Symfony etc.) for certain sections of this (Http, Validators etc.).  It was 
+decided not to rely on any external sources, mainly for maintenance reasons (there's 
+enough for the GA code), but also so that developers could use this code with minimal 
+setup and without having to download any other code from other locations.</p>
+
+<h2>LICENSE</h2>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p>Google Analytics Server Side is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or any later
+version.</p>
+
+<p>The GNU General Public License can be found at<br><a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>.</p>
+
+<p>N/B: This code is nether written or endorsed by Google or any of it's employees.<br>
+"Google" and "Google Analytics" are trademarks of Google Inc. and it's respective subsidiaries.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33383621-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
