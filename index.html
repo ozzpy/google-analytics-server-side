@@ -32,7 +32,7 @@
       <section>
         <div id="title">
           <h1>Google Analytics Server Side</h1>
-          <p>Google Analytics Server Side Tracking (PHP)</p>
+          <p>Server Side Google Analytics Tracking in PHP</p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/chappy84">chappy84</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
@@ -40,10 +40,10 @@
 
         <h1>Google Analytics Server Side</h1>
 
-<p>Google Analytics Server Side is an implementation of the 
-<a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics Web Tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
-It implements parts of the interface that would be available without ECMAScript in a 
-Browser.</p>
+<p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics Web Tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
+It provides Server Side Google Analytics Tracking with a small easy to use PHP 5.3+ framework.<br>
+Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a 
+browser to detect certain features such as screen resolution / colour, flash / java plugin version etc.</p>
 
 <p>CODE: <code>git clone git://github.com/chappy84/google-analytics-server-side.git</code><br>
 HOME: <a href="http://github.com/chappy84/google-analytics-server-side">http://github.com/chappy84/google-analytics-server-side</a><br>
@@ -79,8 +79,8 @@ then it can be passed as part of the array to the class.</p>
 
 <p>could also be done like this:</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
-                                            <span class="s1">'botInfo'</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
+                                            <span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
 </pre></div>
 
 <p>These options can also be set individually by the method setOption,
@@ -137,11 +137,11 @@ All methods but get methods allow chaining for ease of use.</p>
 
 <p>Event tracking is implemented using the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEventTracking">same functionality as in the ga.js tracking code</a></p>
 
-<div class="highlight"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">trackEvent</span><span class="p">(</span><span class="s1">'Category'</span><span class="p">,</span>                             <span class="c1">// string</span>
-                  <span class="s1">'Action'</span><span class="p">,</span>                               <span class="c1">// string</span>
-                  <span class="s1">'Label'</span><span class="p">,</span>                                <span class="c1">// string [optional]</span>
-                  <span class="nx">Value</span><span class="p">,</span>                                  <span class="c1">// integer [optional]</span>
-                  <span class="nx">nonInteraction</span><span class="p">);</span>                        <span class="c1">// boolean [optional]</span>
+<div class="highlight"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">trackEvent</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$category</span><span class="p">,</span> 
+                  <span class="nx">string</span> <span class="nv">$action</span><span class="p">,</span> 
+                 <span class="p">[</span><span class="nx">string</span> <span class="nv">$label</span><span class="p">,</span> 
+                 <span class="p">[</span><span class="nx">int</span>    <span class="nv">$value</span><span class="p">,</span> 
+                 <span class="p">[</span><span class="nx">bool</span>   <span class="nv">$nonInteraction</span> <span class="o">=</span> <span class="k">false</span><span class="p">]]]);</span>
 </pre></div>
 
 <p>N.B. trackEvent() does not require trackPageView() to be called first.<br>
@@ -172,20 +172,20 @@ GASS\BotInfo Class.</p>
 where the <a href="http://tempdownloads.browserscap.com/">php_browscap.ini file</a> is located / can be downloaded to.</li>
 </ul><p>e.g.</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'botInfo'</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-                                            <span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+                                            <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
 </pre></div>
 
 <p>or</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'botInfo'</span>   <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>   <span class="s1">'adapter'</span> <span class="o">=&gt;</span> <span class="s1">'BrowsCap'</span><span class="p">,</span>
-                                                                    <span class="s1">'browscap'</span><span class="o">=&gt;</span> <span class="s1">'/tmp/php_browscap.ini'</span><span class="p">),</span>
-                                            <span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'adapter'</span> <span class="o">=&gt;</span> <span class="s1">'BrowsCap'</span><span class="p">,</span>
+                                                               <span class="s1">'browscap'</span><span class="o">=&gt;</span> <span class="s1">'/tmp/php_browscap.ini'</span><span class="p">),</span>
+                                            <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
 </pre></div>
 
 <p>or</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">))</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">))</span>
 <span class="nv">$browsCapAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GASS\BotInfo\BrowsCap</span><span class="p">;</span>
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setBotInfo</span><span class="p">(</span><span class="nv">$browsCapAdapter</span><span class="p">);</span>
 </pre></div>
@@ -225,15 +225,15 @@ array or an instance of the required adapter.</p>
 
 <p>e.g.</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
-                                            <span class="s1">'http'</span>      <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>   <span class="s1">'adapter'</span>       <span class="o">=&gt;</span> <span class="s1">'Curl'</span><span class="p">,</span>
-                                                                    <span class="nx">CURLOPT_PROXY</span>   <span class="o">=&gt;</span> <span class="s1">'http://exampleproxy.local:8080'</span><span class="p">));</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
+                                            <span class="s1">'http'</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'adapter'</span>     <span class="o">=&gt;</span> <span class="s1">'Curl'</span><span class="p">,</span>
+                                                               <span class="nx">CURLOPT_PROXY</span> <span class="o">=&gt;</span> <span class="s1">'http://exampleproxy.local:8080'</span><span class="p">));</span>
 </pre></div>
 
 <p>or</p>
 
 <div class="highlight"><pre><span class="nv">$httpAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GASS\Http\Stream</span><span class="p">();</span>
-<span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span>   <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
+<span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setHttp</span><span class="p">(</span><span class="nv">$httpAdapter</span><span class="p">);</span>
 </pre></div>
 
@@ -251,14 +251,14 @@ use in the connection when made.</p>
 <h4>Curl</h4>
 
 <p>This utilises the php extension cURL. cURL is recommended, however as it's not always 
-available the code defaults to stream to allow all servers make http requests in the 
+available the code falls back to stream to allow all servers make http requests in the 
 correct way.<br>
 Any options provided to this class must be passed using the <a href="http://www.php.net/manual/en/function.curl-setopt.php#refsect1-function.curl-setopt-parameters">curl constants</a> as 
 identifiers (associative array keys or option names).</p>
 
-<h2>Location</h2>
+<h2>End User Location</h2>
 
-<p>The Location will be reported as the location of the server if you use the GA Account 
+<p>The End User's Location will be reported as the location of the server if you use the GA Account 
 number in the format UA-XXXXXXX-X as provided by Google. If you alter this to the format 
 MO-XXXXXXX-X then the location will be tracked correctly and appear on the location map as 
 it does with the normal ECMAScript tracking.</p>
