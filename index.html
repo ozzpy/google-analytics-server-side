@@ -38,10 +38,8 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1>Google Analytics Server Side</h1>
-
-<p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics Web Tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
-It provides Server Side Google Analytics Tracking with a small easy to use PHP 5.3+ framework.<br>
+        <p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
+It provides server side Google Analytics tracking with a small easy to use PHP 5.3+ framework.<br>
 Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a 
 browser to detect certain features such as screen resolution / colour, flash / java plugin version etc.</p>
 
@@ -61,7 +59,7 @@ Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side
 
 <p>Google Analytics Server Side can be used simply in the following manner:</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">();</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">;</span>
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setAccount</span><span class="p">(</span><span class="s1">'UA-XXXXXXX-X'</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">trackPageView</span><span class="p">();</span>
 </pre></div>
@@ -72,7 +70,7 @@ then it can be passed as part of the array to the class.</p>
 
 <p>e.g.</p>
 
-<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">();</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">;</span>
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setAccount</span><span class="p">(</span><span class="s1">'UA-XXXXXXX-X'</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">setBotInfo</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
 </pre></div>
@@ -232,8 +230,8 @@ array or an instance of the required adapter.</p>
 
 <p>or</p>
 
-<div class="highlight"><pre><span class="nv">$httpAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GASS\Http\Stream</span><span class="p">();</span>
-<span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
+<div class="highlight"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
+<span class="nv">$httpAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GASS\Http\Stream</span><span class="p">;</span>
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setHttp</span><span class="p">(</span><span class="nv">$httpAdapter</span><span class="p">);</span>
 </pre></div>
 
@@ -274,16 +272,43 @@ headers when the first call is made.</p>
 can be done by calling disableCookieHeaders before calling trackPageView / trackEvent for 
 the first time.</p>
 
+<h4>EU Cookie Law and the Do Not Track header</h4>
+
+<p>Yep, as European web developers we all hate one of the most idiotic and stupid pieces of 
+legislation ever introduced by bureaucrats that don't understand either the technology 
+itself or the ridiculously easy work arounds using such things as Javascript, Flash, 
+Silverlight, etc. See <a href="https://github.com/samyk">@samyk</a>'s <a href="https://github.com/samyk/evercookie">evercookie</a> if you don't know.</p>
+
+<p>Anyway, in response to this, since Google themselves deal with the <a href="http://www.w3.org/TR/tracking-dnt/">Do Not Track</a> header 
+and to obey the user's preference this framework should silently deal with this 
+header in the same way, thus the user's preference is accepted by default.</p>
+
+<p>This framework however provides the developer the option to ignore the user's preference.<br>
+You can do this by making the following call:</p>
+
+<div class="highlight"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setIgnoreDoNotTrack</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+
+<p>To reverse this and no longer ignore the Do Not Track header you can make the following call:</p>
+
+<div class="highlight"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setIgnoreDoNotTrack</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+
 <h2>PHP Version</h2>
 
-<p>The Bad News: This project is now a PHP 5.3+ project. PHP themselves no longer support 
-PHP 5.2 as of August 2011 and with PHP 5.4 now available it's time we left 5.2 behind 
-(sorry to all those on shared hosting stuck with it).  </p>
+<p>The minimum supported version is PHP 5.3.3</p>
 
-<p>The Good News: A <a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> has been left which you can feel free to use, 
-fork etc.. Any issues which arise in this branch will have a fix attempted as soon as 
-time is available. Please lodge any issues via the bugs link at the top of this readme, 
-or via a pull request from your fork if you've attempted a fix yourself.</p>
+<p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, via <a href="https://travis-ci.org/">TravisCI</a>, to test the functionality of the 
+framework on the supported minor versions 5.3 and 5.4. This is done by default on the latest 
+bug fix point release of that minor point version to ensure it works. If you find any bugs 
+in previous point releases then please raise an issue via the link at the top of this readme.  </p>
+
+<h4>PHP 5.2</h4>
+
+<p>A <a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> has been left which you can feel free to use, fork etc.. Any issues 
+which arise in this branch will have a fix attempted as soon as time is available. Please 
+lodge any issues via the bugs link at the top of this readme, or via a pull request from 
+your fork if you've attempted a fix yourself.</p>
 
 <h2>Quick Note on External Frameworks</h2>
 
