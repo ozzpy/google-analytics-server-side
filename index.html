@@ -38,7 +38,7 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
+        <p><a href="http://git.io/gass">Google Analytics Server Side</a> is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
 It provides server side Google Analytics tracking with a small easy to use PHP 5.3+ framework.<br>
 Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a 
 browser to detect certain features such as screen resolution / colour, flash / java plugin version etc.</p>
@@ -181,11 +181,11 @@ Gass\BotInfo Class.</p>
 <h4>
 <a name="browscap" class="anchor" href="#browscap"><span class="octicon octicon-link"></span></a>BrowsCap</h4>
 
-<p>There is one optional option as part of the array configuration parameter. </p>
+<p>There is one optional index as part of the array configuration parameter. </p>
 
 <ul>
 <li>browscap: This is the same as the php ini setting <a href="http://www.php.net/manual/en/misc.configuration.php#ini.browscap">browscap</a>, a file-system location 
-where the <a href="http://tempdownloads.browserscap.com/">php_browscap.ini file</a> is located / can be downloaded to.</li>
+where the <a href="http://browscap.org/">php_browscap.ini file</a> is located / can be downloaded to.</li>
 </ul><p>e.g.</p>
 
 <div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span>
@@ -216,7 +216,7 @@ where the <a href="http://tempdownloads.browserscap.com/">php_browscap.ini file<
 <span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setBotInfo</span><span class="p">(</span><span class="nv">$browsCapAdapter</span><span class="p">);</span>
 </pre></div>
 
-<p>When an update for the browscap ini file is available <a href="http://tempdownloads.browserscap.com/">on the server</a> the code will 
+<p>When an update for the browscap ini file is available <a href="http://browscap.org/">on the server</a> the code will 
 automatically download the file into the location provided.</p>
 
 <p>N/B: You MUST either provide the browscap setting or have it set in php.ini, otherwise 
@@ -280,7 +280,7 @@ array or an instance of the required adapter.</p>
 <a name="stream" class="anchor" href="#stream"><span class="octicon octicon-link"></span></a>Stream</h4>
 
 <p>Stream creates a stream context and utilises this stream with file_get_contents. See 
-<a href="http://www.php.net/file_get_contents#example-2322">php's example</a>. Any options provided to this class will go into the 'http' array for 
+<a href="http://www.php.net/manual/en/function.file-get-contents.php#refsect1-function.file-get-contents-examples">php's example</a>. Any options provided to this class will go into the 'http' array for 
 the stream context, thus you may pass any headers or proxy information etc. into this to 
 use in the connection when made.</p>
 
@@ -339,7 +339,7 @@ You can do this by making the following call:</p>
 <h2>
 <a name="php-version" class="anchor" href="#php-version"><span class="octicon octicon-link"></span></a>PHP Version</h2>
 
-<p>The minimum supported version is PHP 5.3.3</p>
+<p>The minimum supported version is PHP 5.3.23</p>
 
 <p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, via <a href="https://travis-ci.org/">TravisCI</a>, to test the functionality of the 
 framework on the supported minor versions 5.3 and 5.4. This is done by default on the latest 
