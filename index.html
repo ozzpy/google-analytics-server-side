@@ -28,7 +28,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p><a href="http://git.io/gass">Google Analytics Server Side</a> is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
+          <p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
 It provides server side Google Analytics tracking with a small easy to use PHP 5.3+ framework.<br>
 Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a 
 browser to detect certain features such as screen resolution / colour, flash / java plugin version etc.</p>
@@ -38,19 +38,28 @@ HOME: <a href="http://github.com/chappy84/google-analytics-server-side">http://g
 BUGS: <a href="http://github.com/chappy84/google-analytics-server-side/issues">http://github.com/chappy84/google-analytics-server-side/issues</a>  </p>
 
 <p>Google Analytics was developed by <a href="http://www.google.com/analytics">Google</a>.<br>
-This PHP adaptation is maintained by <a href="http://tom-chapman.co.uk/">Tom Chapman</a>.  </p>
+This PHP adaptation is maintained by <a href="http://tom-chapman.uk/">Tom Chapman</a>.  </p>
 
 <h2>
 <a name="build-status" class="anchor" href="#build-status"><span class="octicon octicon-link"></span></a>Build Status</h2>
 
-<p>Master: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Build Status"></a><br>
-Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=development" alt="Build Status"></a></p>
+<p>Master: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Master Build Status"></a><br>
+Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=development" alt="Development Build Status"></a></p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>The package is available to install using <a href="http://getcomposer.org/">composer</a> from the <a href="https://packagist.org/">packagist</a> repository since v0.8.6-beta.<br>
-Simply install using <a href="https://packagist.org/packages/chappy84/google-analytics-server-side">chappy84/google-analytics-server-side</a> and it should be installed, checking the requirements.</p>
+<p>The package is available to install using <a href="http://getcomposer.org/">composer</a> from the <a href="https://packagist.org/">packagist</a> repository since 
+v0.8.6-beta. Simply add <a href="https://packagist.org/packages/chappy84/google-analytics-server-side">chappy84/google-analytics-server-side</a> to the "require" section and 
+it'll be installed, checking the requirements. </p>
+
+<p>Alternatively if you don't want to use composer, the framework, without tests, can be included by 
+using the following:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">require_once</span> <span class="s1">'&lt;base_dir&gt;'</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'Gass'</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'Bootstrap.php'</span><span class="p">;</span>
+</pre></div>
+
+<p>where <code>&lt;base_dir&gt;</code> is the base directory of Google Analytics Server Side on your filesystem.</p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -327,22 +336,37 @@ You can do this by making the following call:</p>
 </pre></div>
 
 <h2>
+<a name="test-suite" class="anchor" href="#test-suite"><span class="octicon octicon-link"></span></a>Test Suite</h2>
+
+<p>Master: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=master"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=master" alt="Master Code Coverage Status"></a><br>
+Development: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=development"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=development" alt="Development Code Coverage Status"></a></p>
+
+<p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, along with <a href="https://travis-ci.org/">TravisCI</a>, to test functionality on the 
+supported PHP minor versions 5.3, 5.4, 5.5 and 5.6. This is done by default on the latest bug fix 
+point release of that minor point version to ensure it works.  </p>
+
+<p>Provisional <a href="http://hhvm.com/">HHVM</a> support is provided as-well however this is not guaranteed.</p>
+
+<p>The test suite requires <a href="http://getcomposer.org/">composer</a> for it's dependencies. Please see the instructions 
+<a href="https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable">here</a> on how to install it. After which you can install all the required dependencies 
+using the <code>--dev</code> <a href="https://getcomposer.org/doc/03-cli.md#install">cli argument</a>. </p>
+
+<h2>
 <a name="php-version" class="anchor" href="#php-version"><span class="octicon octicon-link"></span></a>PHP Version</h2>
 
 <p>The minimum supported version is PHP 5.3.23</p>
 
-<p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, via <a href="https://travis-ci.org/">TravisCI</a>, to test the functionality of the 
-framework on the supported minor versions 5.3 and 5.4. This is done by default on the latest 
-bug fix point release of that minor point version to ensure it works. If you find any bugs 
-in previous point releases then please raise an issue via the link at the top of this readme.  </p>
-
 <h4>
-<a name="php-52" class="anchor" href="#php-52"><span class="octicon octicon-link"></span></a>PHP 5.2</h4>
+<a name="un-supported-versions-of-php" class="anchor" href="#un-supported-versions-of-php"><span class="octicon octicon-link"></span></a>Un-supported versions of PHP</h4>
 
-<p>A <a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> has been left which you can feel free to use, fork etc.. Any issues 
-which arise in this branch will have a fix attempted as soon as time is available. Please 
-lodge any issues via the bugs link at the top of this readme, or via a pull request from 
-your fork if you've attempted a fix yourself.</p>
+<p>I've left the following branches of versions which worked with the now un-supported versions of PHP:</p>
+
+<ul>
+<li>
+<a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> </li>
+</ul><p>Please feel free to use, fork etc. any of these branches. Any issues which arise in them won't 
+have fixes attempted I'm afraid. However if you've attempted a fix yourself, please lodge a 
+pull-request and It'll be considered. </p>
 
 <h2>
 <a name="quick-note-on-external-frameworks" class="anchor" href="#quick-note-on-external-frameworks"><span class="octicon octicon-link"></span></a>Quick Note on External Frameworks</h2>
