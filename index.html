@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
@@ -41,13 +41,13 @@ BUGS: <a href="http://github.com/chappy84/google-analytics-server-side/issues">h
 This PHP adaptation is maintained by <a href="http://tom-chapman.uk/">Tom Chapman</a>.  </p>
 
 <h2>
-<a name="build-status" class="anchor" href="#build-status"><span class="octicon octicon-link"></span></a>Build Status</h2>
+<a id="build-status" class="anchor" href="#build-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Status</h2>
 
 <p>Master: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Master Build Status"></a><br>
 Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=development" alt="Development Build Status"></a></p>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>The package is available to install using <a href="http://getcomposer.org/">composer</a> from the <a href="https://packagist.org/">packagist</a> repository since 
 v0.8.6-beta. Simply add <a href="https://packagist.org/packages/chappy84/google-analytics-server-side">chappy84/google-analytics-server-side</a> to the "require" section and 
@@ -56,20 +56,18 @@ it'll be installed, checking the requirements. </p>
 <p>Alternatively if you don't want to use composer, the framework, without tests, can be included by 
 using the following:</p>
 
-<div class="highlight highlight-php"><pre><span class="k">require_once</span> <span class="s1">'&lt;base_dir&gt;'</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'Gass'</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'Bootstrap.php'</span><span class="p">;</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;base_dir&gt;<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-c1">DIRECTORY_SEPARATOR</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>Gass<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-c1">DIRECTORY_SEPARATOR</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>Bootstrap.php<span class="pl-pds">'</span></span>;</span></pre></div>
 
 <p>where <code>&lt;base_dir&gt;</code> is the base directory of Google Analytics Server Side on your filesystem.</p>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>Google Analytics Server Side can be used simply in the following manner:</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">;</span>
-<span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setAccount</span><span class="p">(</span><span class="s1">'UA-XXXXXXX-X'</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">trackPageView</span><span class="p">();</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setAccount(<span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">    <span class="pl-k">-&gt;</span>trackPageView();</span></pre></div>
 
 <p>The class constructor accepts an optional associative array parameter of available
 configuration options. Basically if there's a public method to set the variable
@@ -77,20 +75,18 @@ then it can be passed as part of the array to the class.</p>
 
 <p>e.g.</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">;</span>
-<span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setAccount</span><span class="p">(</span><span class="s1">'UA-XXXXXXX-X'</span><span class="p">)</span>
-    <span class="o">-&gt;</span><span class="na">setBotInfo</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setAccount(<span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">    <span class="pl-k">-&gt;</span>setBotInfo(<span class="pl-c1">true</span>);</span></pre></div>
 
 <p>could also be done like this:</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span>
-    <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
-        <span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">true</span>
-    <span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(</span>
+<span class="pl-s1">    <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>botInfo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">true</span></span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span></pre></div>
 
 <p>These options can also be set individually by the method setOption,
 or in one go with the method setOptions</p>
@@ -109,13 +105,17 @@ The methods implemented are:</p>
 <li>setSessionCookieTimeout</li>
 <li>setVisitorCookieTimeout</li>
 <li>trackPageview</li>
-</ul><p>The methods not implemented yet are:</p>
+</ul>
+
+<p>The methods not implemented yet are:</p>
 
 <ul>
 <li>getName</li>
 <li>setSampleRate</li>
 <li>setSiteSpeedSampleRate</li>
-</ul><p>Extra methods are also available for the information which would normally be 
+</ul>
+
+<p>Extra methods are also available for the information which would normally be 
 pre-determined in the javascript or http request object from the browser. The User Agent, 
 Server Name, Remote Address, Document Path, Document Referer, Google Analytics Version, 
 Accepted Language, Cookies and Search Engines are all set automatically without any method 
@@ -132,36 +132,39 @@ the tracking information:</p>
 <li>setDocumentPath</li>
 <li>setDocumentReferer</li>
 <li>setCookies</li>
-</ul><p>On top of this there are also set methods to alter the default values for the the page 
+</ul>
+
+<p>On top of this there are also set methods to alter the default values for the the page 
 title and document character set.<br>
 These are available via the following methods:</p>
 
 <ul>
 <li>setPageTitle</li>
 <li>setCharset</li>
-</ul><p>Get methods are also provided for all of the above.<br>
+</ul>
+
+<p>Get methods are also provided for all of the above.<br>
 All methods but get methods allow chaining for ease of use.</p>
 
 <h3>
-<a name="event-tracking" class="anchor" href="#event-tracking"><span class="octicon octicon-link"></span></a>Event Tracking</h3>
+<a id="event-tracking" class="anchor" href="#event-tracking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event Tracking</h3>
 
 <p>Event tracking is implemented using the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEventTracking">same functionality as in the ga.js tracking code</a></p>
 
-<div class="highlight highlight-php"><pre><span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="o">::</span><span class="na">trackEvent</span><span class="p">(</span>
-     <span class="nx">string</span> <span class="nv">$category</span><span class="p">,</span> 
-     <span class="nx">string</span> <span class="nv">$action</span><span class="p">,</span> 
-    <span class="p">[</span><span class="nx">string</span> <span class="nv">$label</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> 
-    <span class="p">[</span><span class="nx">int</span>    <span class="nv">$value</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> 
-    <span class="p">[</span><span class="nx">bool</span>   <span class="nv">$nonInteraction</span> <span class="o">=</span> <span class="k">false</span><span class="p">]]]</span>
-<span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span><span class="pl-k">::</span>trackEvent(</span>
+<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$category</span>, </span>
+<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$action</span>, </span>
+<span class="pl-s1">    [<span class="pl-k">string</span> <span class="pl-smi">$label</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>, </span>
+<span class="pl-s1">    [<span class="pl-k">int</span>    <span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>, </span>
+<span class="pl-s1">    [<span class="pl-k">bool</span>   <span class="pl-smi">$nonInteraction</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>]]]</span>
+<span class="pl-s1">);</span></pre></div>
 
 <p>N.B. trackEvent() does not require trackPageView() to be called first.<br>
 However if you do not call trackPageView first or set nonInteraction to true then your 
 pages/visit metric may become less than 1.</p>
 
 <h2>
-<a name="botinfo" class="anchor" href="#botinfo"><span class="octicon octicon-link"></span></a>BotInfo</h2>
+<a id="botinfo" class="anchor" href="#botinfo" aria-hidden="true"><span class="octicon octicon-link"></span></a>BotInfo</h2>
 
 <p>You must enable botInfo for it to ignore any search/trawler bots.<br>
 To do this you need to pass one of true, and associative array or an instance of the 
@@ -173,47 +176,46 @@ You can also pass an instance of a Gass\BotInfo Adapter which will be used by th
 Gass\BotInfo Class.</p>
 
 <h3>
-<a name="adapters" class="anchor" href="#adapters"><span class="octicon octicon-link"></span></a>Adapters</h3>
+<a id="adapters" class="anchor" href="#adapters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adapters</h3>
 
 <p>There are two adapters available in the GASS framework</p>
 
 <h4>
-<a name="browscap" class="anchor" href="#browscap"><span class="octicon octicon-link"></span></a>BrowsCap</h4>
+<a id="browscap" class="anchor" href="#browscap" aria-hidden="true"><span class="octicon octicon-link"></span></a>BrowsCap</h4>
 
 <p>There is one optional index as part of the array configuration parameter. </p>
 
 <ul>
 <li>browscap: This is the same as the php ini setting <a href="http://www.php.net/manual/en/misc.configuration.php#ini.browscap">browscap</a>, a file-system location 
-where the <a href="http://browscap.org/">php_browscap.ini file</a> is located / can be downloaded to.</li>
-</ul><p>e.g.</p>
+where the <a href="http://browscap.org/">full_php_browscap.ini file</a> is located / can be downloaded to.</li>
+</ul>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span>
-    <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-        <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span>
-    <span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
+<p>e.g.</p>
 
-<p>or</p>
-
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span>
-    <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'botInfo'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-            <span class="s1">'adapter'</span> <span class="o">=&gt;</span> <span class="s1">'BrowsCap'</span><span class="p">,</span>
-            <span class="s1">'browscap'</span> <span class="o">=&gt;</span> <span class="s1">'/tmp/php_browscap.ini'</span>
-        <span class="p">),</span>
-        <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span>
-    <span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(</span>
+<span class="pl-s1">    <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>botInfo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">true</span>,</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span></pre></div>
 
 <p>or</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
-<span class="nv">$browsCapAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\BotInfo\BrowsCap</span><span class="p">;</span>
-<span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setBotInfo</span><span class="p">(</span><span class="nv">$browsCapAdapter</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(</span>
+<span class="pl-s1">    <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>botInfo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>adapter<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>BrowsCap<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>browscap<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>/tmp/full_php_browscap.ini<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span></pre></div>
+
+<p>or</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(<span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>));</span>
+<span class="pl-s1"><span class="pl-smi">$browsCapAdapter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\BotInfo\</span><span class="pl-c1">BrowsCap</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setBotInfo(<span class="pl-smi">$browsCapAdapter</span>);</span></pre></div>
 
 <p>When an update for the browscap ini file is available <a href="http://browscap.org/">on the server</a> the code will 
 automatically download the file into the location provided.</p>
@@ -227,7 +229,9 @@ itself, rather than using the built in get_browser function. This ensures the au
 functionality will work without the need to restart the web-server.</p>
 
 <h4>
-<a name="useragentstringinfo" class="anchor" href="#useragentstringinfo"><span class="octicon octicon-link"></span></a>UserAgentStringInfo</h4>
+<a id="useragentstringinfo" class="anchor" href="#useragentstringinfo" aria-hidden="true"><span class="octicon octicon-link"></span></a>UserAgentStringInfo</h4>
+
+<p><strong><em>DEPRECATED</em></strong> - until udger.com implements csvs to replace user agent string info's csv, as user-agent-string.info has now shut down</p>
 
 <p>This was the previous default for Google Analytics Server Side which downloads a csv list 
 of search engine crawlers from <a href="http://user-agent-string.info/download">user-agent-string.info</a>.<br>
@@ -237,10 +241,12 @@ There are three options as part of the array configuration parameter:</p>
 <li>cachePath: where to save the list of bots downloaded from user-agent-string.info (required)</li>
 <li>cacheFilename: the filename to save the list of bots to (optional, defaults to bots.csv)</li>
 <li>cacheLifetime: number of secods before the cache expires (optional, defaults to 2592000 (30 days))</li>
-</ul><p>This can be implemented in the same way as the BrowsCap adapter.</p>
+</ul>
+
+<p>This can be implemented in the same way as the BrowsCap adapter.</p>
 
 <h2>
-<a name="http" class="anchor" href="#http"><span class="octicon octicon-link"></span></a>Http</h2>
+<a id="http" class="anchor" href="#http" aria-hidden="true"><span class="octicon octicon-link"></span></a>Http</h2>
 
 <p>This is a singleton class which provides http functionality across all sections of the 
 GASS framework.<br>
@@ -252,31 +258,29 @@ array or an instance of the required adapter.</p>
 
 <p>e.g.</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span>
-    <span class="k">array</span><span class="p">(</span>
-        <span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">,</span>
-        <span class="s1">'http'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-            <span class="s1">'adapter'</span> <span class="o">=&gt;</span> <span class="s1">'Curl'</span><span class="p">,</span>
-            <span class="nx">CURLOPT_PROXY</span> <span class="o">=&gt;</span> <span class="s1">'http://exampleproxy.local:8080'</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(</span>
+<span class="pl-s1">    <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>http<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>adapter<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Curl<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            <span class="pl-c1">CURLOPT_PROXY</span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>http://exampleproxy.local:8080<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        )</span>
+<span class="pl-s1">    )</span>
+<span class="pl-s1">);</span></pre></div>
 
 <p>or</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\GoogleAnalyticsServerSide</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'account'</span> <span class="o">=&gt;</span> <span class="s1">'UA-XXXXXXX-X'</span><span class="p">));</span>
-<span class="nv">$httpAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Gass\Http\Stream</span><span class="p">;</span>
-<span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setHttp</span><span class="p">(</span><span class="nv">$httpAdapter</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span>(<span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>account<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXXXX-X<span class="pl-pds">'</span></span>));</span>
+<span class="pl-s1"><span class="pl-smi">$httpAdapter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\Http\</span><span class="pl-c1">Stream</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setHttp(<span class="pl-smi">$httpAdapter</span>);</span></pre></div>
 
 <h3>
-<a name="adapters-1" class="anchor" href="#adapters-1"><span class="octicon octicon-link"></span></a>Adapters</h3>
+<a id="adapters-1" class="anchor" href="#adapters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adapters</h3>
 
 <p>There are two Adapters available to Gass\Http, these are:</p>
 
 <h4>
-<a name="stream" class="anchor" href="#stream"><span class="octicon octicon-link"></span></a>Stream</h4>
+<a id="stream" class="anchor" href="#stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream</h4>
 
 <p>Stream creates a stream context and utilises this stream with file_get_contents. See 
 <a href="http://www.php.net/manual/en/function.file-get-contents.php#refsect1-function.file-get-contents-examples">php's example</a>. Any options provided to this class will go into the 'http' array for 
@@ -284,7 +288,7 @@ the stream context, thus you may pass any headers or proxy information etc. into
 use in the connection when made.</p>
 
 <h4>
-<a name="curl" class="anchor" href="#curl"><span class="octicon octicon-link"></span></a>Curl</h4>
+<a id="curl" class="anchor" href="#curl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Curl</h4>
 
 <p>This utilises the php extension cURL. cURL is recommended, however as it's not always 
 available the code falls back to stream to allow all servers make http requests in the 
@@ -293,7 +297,7 @@ Any options provided to this class must be passed using the <a href="http://www.
 identifiers (associative array keys or option names).</p>
 
 <h2>
-<a name="end-user-location" class="anchor" href="#end-user-location"><span class="octicon octicon-link"></span></a>End User Location</h2>
+<a id="end-user-location" class="anchor" href="#end-user-location" aria-hidden="true"><span class="octicon octicon-link"></span></a>End User Location</h2>
 
 <p>The End User's Location will be reported as the location of the server if you use the GA Account 
 number in the format UA-XXXXXXX-X as provided by Google. If you alter this to the format 
@@ -301,7 +305,7 @@ MO-XXXXXXX-X then the location will be tracked correctly and appear on the locat
 it does with the normal ECMAScript tracking.</p>
 
 <h2>
-<a name="cookies" class="anchor" href="#cookies"><span class="octicon octicon-link"></span></a>Cookies</h2>
+<a id="cookies" class="anchor" href="#cookies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookies</h2>
 
 <p>Cookies are automatically set when either trackPageView or trackEvent are called.<br>
 They are however only sent as headers to the browser once, thus if you call either 
@@ -313,7 +317,7 @@ can be done by calling disableCookieHeaders before calling trackPageView / track
 the first time.</p>
 
 <h4>
-<a name="eu-cookie-law-and-the-do-not-track-header" class="anchor" href="#eu-cookie-law-and-the-do-not-track-header"><span class="octicon octicon-link"></span></a>EU Cookie Law and the Do Not Track header</h4>
+<a id="eu-cookie-law-and-the-do-not-track-header" class="anchor" href="#eu-cookie-law-and-the-do-not-track-header" aria-hidden="true"><span class="octicon octicon-link"></span></a>EU Cookie Law and the Do Not Track header</h4>
 
 <p>Yep, as European web developers we all hate one of the most idiotic and stupid pieces of 
 legislation ever introduced by bureaucrats that don't understand either the technology 
@@ -327,16 +331,14 @@ header in the same way, thus the user's preference is accepted by default.</p>
 <p>This framework however provides the developer the option to ignore the user's preference.<br>
 You can do this by making the following call:</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setIgnoreDoNotTrack</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setIgnoreDoNotTrack(<span class="pl-c1">true</span>);</span></pre></div>
 
 <p>To reverse this and no longer ignore the Do Not Track header you can make the following call:</p>
 
-<div class="highlight highlight-php"><pre><span class="nv">$gass</span><span class="o">-&gt;</span><span class="na">setIgnoreDoNotTrack</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setIgnoreDoNotTrack(<span class="pl-c1">false</span>);</span></pre></div>
 
 <h2>
-<a name="test-suite" class="anchor" href="#test-suite"><span class="octicon octicon-link"></span></a>Test Suite</h2>
+<a id="test-suite" class="anchor" href="#test-suite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Suite</h2>
 
 <p>Master: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=master"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=master" alt="Master Code Coverage Status"></a><br>
 Development: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=development"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=development" alt="Development Code Coverage Status"></a></p>
@@ -352,24 +354,26 @@ point release of that minor point version to ensure it works.  </p>
 using the <code>--dev</code> <a href="https://getcomposer.org/doc/03-cli.md#install">cli argument</a>. </p>
 
 <h2>
-<a name="php-version" class="anchor" href="#php-version"><span class="octicon octicon-link"></span></a>PHP Version</h2>
+<a id="php-version" class="anchor" href="#php-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHP Version</h2>
 
 <p>The minimum supported version is PHP 5.3.23</p>
 
 <h4>
-<a name="un-supported-versions-of-php" class="anchor" href="#un-supported-versions-of-php"><span class="octicon octicon-link"></span></a>Un-supported versions of PHP</h4>
+<a id="un-supported-versions-of-php" class="anchor" href="#un-supported-versions-of-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>Un-supported versions of PHP</h4>
 
 <p>I've left the following branches of versions which worked with the now un-supported versions of PHP:</p>
 
 <ul>
 <li>
 <a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> </li>
-</ul><p>Please feel free to use, fork etc. any of these branches. Any issues which arise in them won't 
+</ul>
+
+<p>Please feel free to use, fork etc. any of these branches. Any issues which arise in them won't 
 have fixes attempted I'm afraid. However if you've attempted a fix yourself, please lodge a 
 pull-request and It'll be considered. </p>
 
 <h2>
-<a name="quick-note-on-external-frameworks" class="anchor" href="#quick-note-on-external-frameworks"><span class="octicon octicon-link"></span></a>Quick Note on External Frameworks</h2>
+<a id="quick-note-on-external-frameworks" class="anchor" href="#quick-note-on-external-frameworks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Note on External Frameworks</h2>
 
 <p>You may be wondering why this framework doesn't use an external framework (such as Zend 
 Framework, Symfony etc.) for certain sections of this (Http, Validators etc.).  It was 
@@ -378,7 +382,7 @@ enough for the GA code), but also so that developers could use this code with mi
 setup and without having to download any other code from other locations.</p>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>LICENSE</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>LICENSE</h2>
 
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -397,7 +401,8 @@ modify it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 3 of the License, or any later
 version.</p>
 
-<p>The GNU General Public License can be found at<br><a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>.</p>
+<p>The GNU General Public License can be found at<br>
+<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>.</p>
 
 <p>N/B: This code is nether written or endorsed by Google or any of it's employees.<br>
 "Google" and "Google Analytics" are trademarks of Google Inc. and it's respective subsidiaries.</p>
