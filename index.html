@@ -28,9 +28,9 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.<br>
-It provides server side Google Analytics tracking with a small easy to use PHP 5.3+ framework.<br>
-Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a 
+          <p>Google Analytics Server Side is an implementation of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics web tracking ECMAScript</a> in <a href="http://www.php.net/">PHP</a>.
+It provides server side Google Analytics tracking with a small easy to use PHP 5.3+ framework.
+Implemented are the parts of the interface that would be available without <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> in a
 browser to detect certain features such as screen resolution / colour, flash / java plugin version etc.</p>
 
 <p>CODE: <code>git clone git://github.com/chappy84/google-analytics-server-side.git</code><br>
@@ -38,22 +38,23 @@ HOME: <a href="http://github.com/chappy84/google-analytics-server-side">http://g
 BUGS: <a href="http://github.com/chappy84/google-analytics-server-side/issues">http://github.com/chappy84/google-analytics-server-side/issues</a>  </p>
 
 <p>Google Analytics was developed by <a href="http://www.google.com/analytics">Google</a>.<br>
-This PHP adaptation is maintained by <a href="http://tom-chapman.uk/">Tom Chapman</a>.  </p>
+This PHP adaptation is maintained by <a href="http://tom-chapman.uk/">Tom Chapman</a>.</p>
 
-<h2>
-<a id="build-status" class="anchor" href="#build-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build Status</h2>
-
-<p>Master: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Master Build Status"></a><br>
-Development: <a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=development" alt="Development Build Status"></a></p>
+<p><a href="http://travis-ci.org/chappy84/google-analytics-server-side"><img src="https://secure.travis-ci.org/chappy84/google-analytics-server-side.png?branch=master" alt="Build Status"></a>
+<a href="https://insight.sensiolabs.com/projects/655a47b5-a324-487f-9b14-67da007b24d1"><img src="https://insight.sensiolabs.com/projects/655a47b5-a324-487f-9b14-67da007b24d1/mini.png" alt="SensioLabsInsight"></a>
+<a href="https://packagist.org/packages/chappy84/google-analytics-server-side"><img src="https://poser.pugx.org/chappy84/google-analytics-server-side/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/chappy84/google-analytics-server-side"><img src="https://poser.pugx.org/chappy84/google-analytics-server-side/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/chappy84/google-analytics-server-side"><img src="https://poser.pugx.org/chappy84/google-analytics-server-side/license" alt="License"></a>
+<a href="https://www.versioneye.com/user/projects/55a2bc5132393900170004a9"><img src="https://www.versioneye.com/user/projects/55a2bc5132393900170004a9/badge.svg?style=flat" alt="Dependency Status"></a></p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>The package is available to install using <a href="http://getcomposer.org/">composer</a> from the <a href="https://packagist.org/">packagist</a> repository since 
-v0.8.6-beta. Simply add <a href="https://packagist.org/packages/chappy84/google-analytics-server-side">chappy84/google-analytics-server-side</a> to the "require" section and 
-it'll be installed, checking the requirements. </p>
+<p>The package is available to install using <a href="http://getcomposer.org/">composer</a> from the <a href="https://packagist.org/">packagist</a> repository since
+v0.8.6-beta. Simply add <a href="https://packagist.org/packages/chappy84/google-analytics-server-side">chappy84/google-analytics-server-side</a> to the "require" section and
+it'll be installed, checking the requirements.</p>
 
-<p>Alternatively if you don't want to use composer, the framework, without tests, can be included by 
+<p>Alternatively if you don't want to use composer, the framework, without tests, can be included by
 using the following:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;base_dir&gt;<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-c1">DIRECTORY_SEPARATOR</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>Gass<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-c1">DIRECTORY_SEPARATOR</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>Bootstrap.php<span class="pl-pds">'</span></span>;</span></pre></div>
@@ -91,7 +92,7 @@ then it can be passed as part of the array to the class.</p>
 <p>These options can also be set individually by the method setOption,
 or in one go with the method setOptions</p>
 
-<p>Most of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration">current basic methods</a> available in ga.js tracking code have been 
+<p>Most of the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration">current basic methods</a> available in ga.js tracking code have been
 implemented.<br>
 The methods implemented are:</p>
 
@@ -115,12 +116,12 @@ The methods implemented are:</p>
 <li>setSiteSpeedSampleRate</li>
 </ul>
 
-<p>Extra methods are also available for the information which would normally be 
-pre-determined in the javascript or http request object from the browser. The User Agent, 
-Server Name, Remote Address, Document Path, Document Referer, Google Analytics Version, 
-Accepted Language, Cookies and Search Engines are all set automatically without any method 
-calls being required by the developer. However, the following methods are available to set 
-these variables and should be called before the trackPageView / trackEvent method to save 
+<p>Extra methods are also available for the information which would normally be
+pre-determined in the javascript or http request object from the browser. The User Agent,
+Server Name, Remote Address, Document Path, Document Referer, Google Analytics Version,
+Accepted Language, Cookies and Search Engines are all set automatically without any method
+calls being required by the developer. However, the following methods are available to set
+these variables and should be called before the trackPageView / trackEvent method to save
 the tracking information:</p>
 
 <ul>
@@ -134,7 +135,7 @@ the tracking information:</p>
 <li>setCookies</li>
 </ul>
 
-<p>On top of this there are also set methods to alter the default values for the the page 
+<p>On top of this there are also set methods to alter the default values for the the page
 title and document character set.<br>
 These are available via the following methods:</p>
 
@@ -152,27 +153,27 @@ All methods but get methods allow chaining for ease of use.</p>
 <p>Event tracking is implemented using the <a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiEventTracking">same functionality as in the ga.js tracking code</a></p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">\Gass\</span><span class="pl-c1">GoogleAnalyticsServerSide</span><span class="pl-k">::</span>trackEvent(</span>
-<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$category</span>, </span>
-<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$action</span>, </span>
-<span class="pl-s1">    [<span class="pl-k">string</span> <span class="pl-smi">$label</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>, </span>
-<span class="pl-s1">    [<span class="pl-k">int</span>    <span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>, </span>
+<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$category</span>,</span>
+<span class="pl-s1">     <span class="pl-k">string</span> <span class="pl-smi">$action</span>,</span>
+<span class="pl-s1">    [<span class="pl-k">string</span> <span class="pl-smi">$label</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>,</span>
+<span class="pl-s1">    [<span class="pl-k">int</span>    <span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>,</span>
 <span class="pl-s1">    [<span class="pl-k">bool</span>   <span class="pl-smi">$nonInteraction</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>]]]</span>
 <span class="pl-s1">);</span></pre></div>
 
 <p>N.B. trackEvent() does not require trackPageView() to be called first.<br>
-However if you do not call trackPageView first or set nonInteraction to true then your 
+However if you do not call trackPageView first or set nonInteraction to true then your
 pages/visit metric may become less than 1.</p>
 
 <h2>
 <a id="botinfo" class="anchor" href="#botinfo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BotInfo</h2>
 
 <p>You must enable botInfo for it to ignore any search/trawler bots.<br>
-To do this you need to pass one of true, and associative array or an instance of the 
-adapter you want to use into the class.  The code will default to the BrowsCap adapter. 
-Setting this to true will use the default. If you pass an associative array, this will be 
-passed to BotInfo and through to the Adapter. When providing an associative array you can 
-also pass the element 'adapter' which will tell BotInfo which class to use as the Adapter. 
-You can also pass an instance of a Gass\BotInfo Adapter which will be used by the 
+To do this you need to pass one of true, and associative array or an instance of the
+adapter you want to use into the class.  The code will default to the BrowsCap adapter.
+Setting this to true will use the default. If you pass an associative array, this will be
+passed to BotInfo and through to the Adapter. When providing an associative array you can
+also pass the element 'adapter' which will tell BotInfo which class to use as the Adapter.
+You can also pass an instance of a Gass\BotInfo Adapter which will be used by the
 Gass\BotInfo Class.</p>
 
 <h3>
@@ -183,10 +184,10 @@ Gass\BotInfo Class.</p>
 <h4>
 <a id="browscap" class="anchor" href="#browscap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BrowsCap</h4>
 
-<p>There is one optional index as part of the array configuration parameter. </p>
+<p>There is one optional index as part of the array configuration parameter.</p>
 
 <ul>
-<li>browscap: This is the same as the php ini setting <a href="http://www.php.net/manual/en/misc.configuration.php#ini.browscap">browscap</a>, a file-system location 
+<li>browscap: This is the same as the php ini setting <a href="http://www.php.net/manual/en/misc.configuration.php#ini.browscap">browscap</a>, a file-system location
 where the <a href="http://browscap.org/">full_php_browscap.ini file</a> is located / can be downloaded to.</li>
 </ul>
 
@@ -217,15 +218,15 @@ where the <a href="http://browscap.org/">full_php_browscap.ini file</a> is locat
 <span class="pl-s1"><span class="pl-smi">$browsCapAdapter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Gass\BotInfo\</span><span class="pl-c1">BrowsCap</span>;</span>
 <span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setBotInfo(<span class="pl-smi">$browsCapAdapter</span>);</span></pre></div>
 
-<p>When an update for the browscap ini file is available <a href="http://browscap.org/">on the server</a> the code will 
+<p>When an update for the browscap ini file is available <a href="http://browscap.org/">on the server</a> the code will
 automatically download the file into the location provided.</p>
 
-<p>N/B: You MUST either provide the browscap setting or have it set in php.ini, otherwise 
+<p>N/B: You MUST either provide the browscap setting or have it set in php.ini, otherwise
 this adapter will not work.</p>
 
-<p>N/B2: Due to an issue with the browscap ini file only being loaded when PHP starts up 
-(which is with the web-server apache, PHP-FPM etc.) the code deals with the ini file 
-itself, rather than using the built in get_browser function. This ensures the auto-update 
+<p>N/B2: Due to an issue with the browscap ini file only being loaded when PHP starts up
+(which is with the web-server apache, PHP-FPM etc.) the code deals with the ini file
+itself, rather than using the built in get_browser function. This ensures the auto-update
 functionality will work without the need to restart the web-server.</p>
 
 <h4>
@@ -233,7 +234,7 @@ functionality will work without the need to restart the web-server.</p>
 
 <p><strong><em>DEPRECATED</em></strong> - until udger.com implements csvs to replace user agent string info's csv, as user-agent-string.info has now shut down</p>
 
-<p>This was the previous default for Google Analytics Server Side which downloads a csv list 
+<p>This was the previous default for Google Analytics Server Side which downloads a csv list
 of search engine crawlers from <a href="http://user-agent-string.info/download">user-agent-string.info</a>.<br>
 There are three options as part of the array configuration parameter:</p>
 
@@ -248,12 +249,12 @@ There are three options as part of the array configuration parameter:</p>
 <h2>
 <a id="http" class="anchor" href="#http" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Http</h2>
 
-<p>This is a singleton class which provides http functionality across all sections of the 
+<p>This is a singleton class which provides http functionality across all sections of the
 GASS framework.<br>
-This will default to using the Curl adapter if it's available otherwise it'll fall back 
-to the Stream adapter. It requires no options. All options should be passed as a 
-configuration option to GoogleAnalyticsServerSide either via the configuration parameter 
-in the 'http' element or via the setHttp parameter. This can either be an associative 
+This will default to using the Curl adapter if it's available otherwise it'll fall back
+to the Stream adapter. It requires no options. All options should be passed as a
+configuration option to GoogleAnalyticsServerSide either via the configuration parameter
+in the 'http' element or via the setHttp parameter. This can either be an associative
 array or an instance of the required adapter.</p>
 
 <p>e.g.</p>
@@ -282,53 +283,53 @@ array or an instance of the required adapter.</p>
 <h4>
 <a id="stream" class="anchor" href="#stream" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stream</h4>
 
-<p>Stream creates a stream context and utilises this stream with file_get_contents. See 
-<a href="http://www.php.net/manual/en/function.file-get-contents.php#refsect1-function.file-get-contents-examples">php's example</a>. Any options provided to this class will go into the 'http' array for 
-the stream context, thus you may pass any headers or proxy information etc. into this to 
+<p>Stream creates a stream context and utilises this stream with file_get_contents. See
+<a href="http://www.php.net/manual/en/function.file-get-contents.php#refsect1-function.file-get-contents-examples">php's example</a>. Any options provided to this class will go into the 'http' array for
+the stream context, thus you may pass any headers or proxy information etc. into this to
 use in the connection when made.</p>
 
 <h4>
 <a id="curl" class="anchor" href="#curl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Curl</h4>
 
-<p>This utilises the php extension cURL. cURL is recommended, however as it's not always 
-available the code falls back to stream to allow all servers make http requests in the 
+<p>This utilises the php extension cURL. cURL is recommended, however as it's not always
+available the code falls back to stream to allow all servers make http requests in the
 correct way.<br>
-Any options provided to this class must be passed using the <a href="http://www.php.net/manual/en/function.curl-setopt.php#refsect1-function.curl-setopt-parameters">curl constants</a> as 
+Any options provided to this class must be passed using the <a href="http://www.php.net/manual/en/function.curl-setopt.php#refsect1-function.curl-setopt-parameters">curl constants</a> as
 identifiers (associative array keys or option names).</p>
 
 <h2>
 <a id="end-user-location" class="anchor" href="#end-user-location" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>End User Location</h2>
 
-<p>The End User's Location will be reported as the location of the server if you use the GA Account 
-number in the format UA-XXXXXXX-X as provided by Google. If you alter this to the format 
-MO-XXXXXXX-X then the location will be tracked correctly and appear on the location map as 
+<p>The End User's Location will be reported as the location of the server if you use the GA Account
+number in the format UA-XXXXXXX-X as provided by Google. If you alter this to the format
+MO-XXXXXXX-X then the location will be tracked correctly and appear on the location map as
 it does with the normal ECMAScript tracking.</p>
 
 <h2>
 <a id="cookies" class="anchor" href="#cookies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cookies</h2>
 
 <p>Cookies are automatically set when either trackPageView or trackEvent are called.<br>
-They are however only sent as headers to the browser once, thus if you call either 
-function more than once, or call both functions, then they will only be included in the 
+They are however only sent as headers to the browser once, thus if you call either
+function more than once, or call both functions, then they will only be included in the
 headers when the first call is made.</p>
 
-<p>You do have the option to turn off the sending of the cookie headers to the browser which 
-can be done by calling disableCookieHeaders before calling trackPageView / trackEvent for 
+<p>You do have the option to turn off the sending of the cookie headers to the browser which
+can be done by calling disableCookieHeaders before calling trackPageView / trackEvent for
 the first time.</p>
 
 <h4>
 <a id="eu-cookie-law-and-the-do-not-track-header" class="anchor" href="#eu-cookie-law-and-the-do-not-track-header" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EU Cookie Law and the Do Not Track header</h4>
 
-<p>Yep, as European web developers we all hate one of the most idiotic and stupid pieces of 
-legislation ever introduced by bureaucrats that don't understand either the technology 
-itself or the ridiculously easy work arounds using such things as Javascript, Flash, 
+<p>Yep, as European web developers we all hate one of the most idiotic and stupid pieces of
+legislation ever introduced by bureaucrats that don't understand either the technology
+itself or the ridiculously easy work arounds using such things as Javascript, Flash,
 Silverlight, etc. See <a href="https://github.com/samyk">@samyk</a>'s <a href="https://github.com/samyk/evercookie">evercookie</a> if you don't know.</p>
 
-<p>Anyway, in response to this, since Google themselves deal with the <a href="http://www.w3.org/TR/tracking-dnt/">Do Not Track</a> header 
-and to obey the user's preference this framework should silently deal with this 
+<p>Anyway, in response to this, since Google themselves deal with the <a href="http://www.w3.org/TR/tracking-dnt/">Do Not Track</a> header
+and to obey the user's preference this framework should silently deal with this
 header in the same way, thus the user's preference is accepted by default.</p>
 
-<p>This framework however provides the developer the option to ignore the user's preference.<br>
+<p>This framework however provides the developer the option to ignore the user's preference.
 You can do this by making the following call:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$gass</span><span class="pl-k">-&gt;</span>setIgnoreDoNotTrack(<span class="pl-c1">true</span>);</span></pre></div>
@@ -340,18 +341,18 @@ You can do this by making the following call:</p>
 <h2>
 <a id="test-suite" class="anchor" href="#test-suite" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test Suite</h2>
 
-<p>Master: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=master"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=master" alt="Master Code Coverage Status"></a><br>
+<p>Master: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=master"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=master" alt="Master Code Coverage Status"></a>
 Development: <a href="https://coveralls.io/r/chappy84/google-analytics-server-side?branch=development"><img src="https://coveralls.io/repos/chappy84/google-analytics-server-side/badge.png?branch=development" alt="Development Code Coverage Status"></a></p>
 
-<p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, along with <a href="https://travis-ci.org/">TravisCI</a>, to test functionality on the 
-supported PHP minor versions 5.3, 5.4, 5.5 and 5.6. This is done by default on the latest bug fix 
-point release of that minor point version to ensure it works.  </p>
+<p>This framework uses <a href="https://github.com/sebastianbergmann/phpunit">PHPUnit</a>, along with <a href="https://travis-ci.org/">TravisCI</a>, to test functionality on the
+supported PHP minor versions 5.3, 5.4, 5.5, 5.6, 7.0 and 7.1. This is done by default on the latest bug fix
+point release of that minor point version to ensure it works.</p>
 
-<p>Provisional <a href="http://hhvm.com/">HHVM</a> support is provided as-well however this is not guaranteed.</p>
+<p>Provisional PHP nightly &amp; <a href="http://hhvm.com/">HHVM</a> support are provided as-well however these are not guaranteed.</p>
 
-<p>The test suite requires <a href="http://getcomposer.org/">composer</a> for it's dependencies. Please see the instructions 
-<a href="https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable">here</a> on how to install it. After which you can install all the required dependencies 
-using the <code>--dev</code> <a href="https://getcomposer.org/doc/03-cli.md#install">cli argument</a>. </p>
+<p>The test suite requires <a href="http://getcomposer.org/">composer</a> for it's development dependencies. Please see the instructions
+<a href="https://getcomposer.org/doc/00-intro.md#downloading-the-composer-executable">here</a> on how to install it. After which you can <a href="https://getcomposer.org/doc/03-cli.md#install">install</a> all the required dev dependencies
+using <code>composer install</code>.</p>
 
 <h2>
 <a id="php-version" class="anchor" href="#php-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP Version</h2>
@@ -364,47 +365,44 @@ using the <code>--dev</code> <a href="https://getcomposer.org/doc/03-cli.md#inst
 <p>I've left the following branches of versions which worked with the now un-supported versions of PHP:</p>
 
 <ul>
-<li>
-<a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a> </li>
+<li><a href="https://github.com/chappy84/google-analytics-server-side/tree/php-5.2">PHP 5.2 Branch</a></li>
 </ul>
 
-<p>Please feel free to use, fork etc. any of these branches. Any issues which arise in them won't 
-have fixes attempted I'm afraid. However if you've attempted a fix yourself, please lodge a 
-pull-request and It'll be considered. </p>
-
-<h2>
-<a id="quick-note-on-external-frameworks" class="anchor" href="#quick-note-on-external-frameworks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Note on External Frameworks</h2>
-
-<p>You may be wondering why this framework doesn't use an external framework (such as Zend 
-Framework, Symfony etc.) for certain sections of this (Http, Validators etc.).  It was 
-decided not to rely on any external sources, mainly for maintenance reasons (there's 
-enough for the GA code), but also so that developers could use this code with minimal 
-setup and without having to download any other code from other locations.</p>
+<p>Please feel free to use, fork etc. any of these branches. Any issues which arise in them won't
+have fixes attempted I'm afraid. However if you've attempted a fix yourself, please lodge a
+pull-request and It'll be considered.</p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE</h2>
 
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>This software uses the BSD 3-Clause license:</p>
 
-<p>Google Analytics Server Side is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or any later
-version.</p>
+<p>Copyright (c) 2011-2015, Tom Chapman (<a href="http://tom-chapman.uk">http://tom-chapman.uk</a>)
+All rights reserved.</p>
 
-<p>The GNU General Public License can be found at<br>
-<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:</p>
 
-<p>N/B: This code is nether written or endorsed by Google or any of it's employees.<br>
+<ol>
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions
+and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of
+conditions and the following disclaimer in the documentation and/or other materials provided with
+the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its contributors may be used to
+endorse or promote products derived from this software without specific prior written permission.</p></li>
+</ol>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE</p>
+
+<p>N/B: This code is nether written or endorsed by Google or any of it's employees.
 "Google" and "Google Analytics" are trademarks of Google Inc. and it's respective subsidiaries.</p>
         </section>
 
